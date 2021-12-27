@@ -1,7 +1,7 @@
 const env = require("dotenv");
 const HDWalletPrdvider = require("@truffle/hdwallet-provider");
 const Web3 = require("web3");
-const { abi, evm } = require("./compile");
+const { Inbox, Lottery } = require("./compile");
 
 env.config();
 
@@ -13,14 +13,14 @@ const provider = new HDWalletPrdvider(
 
 const web3 = new Web3(provider);
 
-const deploy = async () => {
+const deploy = async (abi, evm, arguments) => {
   const accounts = await web3.eth.getAccounts();
   console.log("Attempting to deploy from account", accounts[0]);
 
   const result = await new web3.eth.Contract(abi)
     .deploy({
       data: evm.bytecode.object,
-      arguments: [INITIAL_MESSAGE],
+      arguments
     })
     .send({ from: accounts[0], gas: "1000000" });
 
@@ -28,4 +28,5 @@ const deploy = async () => {
   provider.engine.stop();
 };
 
-deploy();
+deploy(Inbox.abi, Inbox.evm, [INITIAL_MESSAGE]);
+deploy(Lottery.abi, Lottery.evm);
