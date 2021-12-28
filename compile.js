@@ -27,5 +27,6 @@ function compiler(contract) {
 
 const Inbox = compiler("Inbox.sol").Inbox;
 const Lottery = compiler("Lottery.sol").Lottery;
+console.log("Lottery contract ABI", JSON.stringify(Lottery.abi));
 
 module.exports = { Inbox, Lottery };

@@ -1,21 +1,52 @@
 {
-  "name": "inbox",
+  "name": "ethereum-tuto",
   "version": "1.0.0",
-  "description": "Inbox smart contract",
+  "description": "Ethereum tuto - Smart contract, DApps",
+  "author": "Firdaws Aboulaye",
+  "license": "ISC",
   "main": "index.js",
   "scripts": {
     "compile": "node compile.js",
     "test": "mocha",
-    "deploy": "node deploy.js"
+    "deploy": "node deploy.js",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test:react": "react-scripts test",
+    "eject": "react-scripts eject"
   },
-  "author": "Firdaws Aboulaye",
-  "license": "ISC",
+  "dependencies": {
+    "@testing-library/jest-dom": "^5.16.1",
+    "@testing-library/react": "^12.1.2",
+    "@testing-library/user-event": "^13.5.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-scripts": "4.0.3",
+    "web-vitals": "^2.1.2",
+    "web3": "^1.6.1"
+  },
   "devDependencies": {
     "@truffle/hdwallet-provider": "^2.0.0",
     "dotenv": "^10.0.0",
     "ganache-cli": "^6.12.2",
     "mocha": "^9.1.3",
-    "solc": "^0.8.9",
-    "web3": "^1.6.1"
+    "solc": "^0.8.9"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }
